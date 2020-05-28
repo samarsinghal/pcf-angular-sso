@@ -33,6 +33,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - npm install -g @angular/cli
 - ng new my-app
 - cd my-app/
+- ng generate component home
 - ng generate component login
 - npm install angular-oauth2-oidc --save
 - ng serve

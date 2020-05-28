@@ -23,6 +23,10 @@ export class AppComponent {
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
+  home() {
+    window.location.href="http://localhost:4200/home";
+  }
+
   login() {
     console.log("token:",this.oauthService.getIdToken());
     this.oauthService.initImplicitFlow();
@@ -31,12 +35,11 @@ export class AppComponent {
 
   logout() {
     console.log("logging out");
-    console.log(this.oauthService.getIdToken());
-    console.log("\n\n\n",this.oauthService.getAccessToken());
-
-    this.oauthService.revokeTokenAndLogout();
-    // this.oauthService.logOut();
     window.location.href="https://login.system.stonington.stream/logout.do";
     window.location.href="http://localhost:4200/home";
+    this.oauthService.resetImplicitFlow();
+    this.oauthService.revokeTokenAndLogout();
+    this.oauthService.logOut();
+    
   }
 }
