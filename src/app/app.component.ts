@@ -11,6 +11,7 @@ import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 export class AppComponent {
   title = 'my-app';
   myHtml  : string = this.oauthService.getAccessToken() ;
+  myState : string = "State:"+this.oauthService.state;
 
 
   constructor(private oauthService: OAuthService) {
@@ -25,6 +26,7 @@ export class AppComponent {
 
   home() {
     window.location.href="http://localhost:4200/home";
+    this.myHtml = this.oauthService.getAccessToken();
   }
 
   login() {
@@ -40,6 +42,7 @@ export class AppComponent {
     this.oauthService.resetImplicitFlow();
     this.oauthService.revokeTokenAndLogout();
     this.oauthService.logOut();
+    
     
   }
 }
