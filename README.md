@@ -26,3 +26,46 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 # pcf-angular-sso
+
+
+## script
+
+npm install -g @angular/cli
+ng new my-app
+cd my-app/
+ng generate component login
+npm install angular-oauth2-oidc --save
+ng serve
+ng build
+ng serve --open
+
+
+## pcf
+
+https://p-identity.system.stonington.stream/dashboard/
+
+Create new plan or use system one. 
+
+## Apps manager
+
+Services
+- create new SSO service instance
+- select system or custom plan.
+- Select Manage on service instance
+- Register a new app. 
+    - create name
+    - select type (eg. Auth Code)
+    - Set the redirect url eg. http://localhost:4200
+    - Select the permissions
+    - Save the App ID & App Secret
+    - Select Credentials to get the SSO Service URL
+
+- Configure values in app/sso.config.ts
+
+
+
+- 
+
+
+
+
