@@ -21,7 +21,29 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "assets",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "Staticfile",
+                "input": "",
+                "output": "/"
+              }
+
+
+
+
+
+
+
             ],
             "styles": [
               "src/styles.css"
@@ -126,3 +148,7 @@
     "analytics": false
   }
 }
+
+
+
+

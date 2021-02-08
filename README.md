@@ -55,7 +55,7 @@ Services
 - Select Manage on service instance
 - Register a new app. 
     - create name
-    - select type (eg. Auth Code)
+    - select type (eg. Implicit)
     - Set the redirect url eg. http://localhost:4200
     - Select the permissions
     - Save the App ID & App Secret
@@ -63,9 +63,7 @@ Services
 
 - Configure values in app/sso.config.ts
 
-
-
-- 
+- cf push application  
 
 
 

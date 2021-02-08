@@ -1,0 +1,8 @@
+applications:
+- name: angular-app
+  instances: 1
+  memory: 30M
+  buildpack: staticfile_buildpack
+  path: ./dist/my-app
+  routes:
+    - route: angular-app.apps.dev.add2cloud.com

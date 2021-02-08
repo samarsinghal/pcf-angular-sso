@@ -10,8 +10,8 @@ import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 })
 export class AppComponent {
   title = 'my-app';
-  myHtml  : string = this.oauthService.getAccessToken() ;
-  myState : string = "State:"+this.oauthService.hasValidAccessToken();
+  myHtml  : string = "Token: "+this.oauthService.getAccessToken() ;
+  myState : string = "State: "+this.oauthService.hasValidAccessToken();
 
   constructor(private oauthService: OAuthService) {
     this.configureSingleSignOn();
@@ -19,28 +19,31 @@ export class AppComponent {
 
   configureSingleSignOn() {
     this.oauthService.configure(authConfig);
-    this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+    this.oauthService.tokenValidationHandler = new JwksValidationHandler(); 
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
   home() {
-    window.location.href="http://localhost:4200/home";
-    this.myHtml = this.oauthService.getAccessToken();
+    window.location.href="https://angular-app.apps.dev.add2cloud.com/home";
+    this.myHtml = "Token: "+this.oauthService.getAccessToken();
   }
 
   login() {
-    console.log("token:",this.oauthService.getIdToken());
-    this.oauthService.initImplicitFlow();
-    this.myHtml = this.oauthService.getAccessToken();
-  }
+    if(!this.oauthService.getAccessToken())
+    {
+      this.oauthService.initImplicitFlow();
 
-  logout() {
+    }
+    window.location.href="https://angular-app.apps.dev.add2cloud.com/login";
+  }
+  
+  logout(){
     console.log("logging out");
-    window.location.href="https://login.system.stonington.stream/logout.do";
-    window.location.href="http://localhost:4200/home";
+    window.location.href="https://login.sys.dev.add2cloud.com/logout.do";
+    window.location.href="https://angular-app.apps.dev.add2cloud.com/home";
     this.oauthService.resetImplicitFlow();
     this.oauthService.revokeTokenAndLogout();
     this.oauthService.logOut();
   }
-  
+
 }

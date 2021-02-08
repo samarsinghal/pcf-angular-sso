@@ -16,7 +16,7 @@ exports.config = {
     browserName: 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'http://angular-app.apps.dev.add2cloud.com/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
